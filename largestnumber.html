@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h1>Largest number of 3</h1>
+<script>
+    //Take prompt 3 numbers
+    let num1 = parseInt(prompt("Enter first number"));
+    let num2 = parseInt(prompt("Enter second number"));
+    let num3 = parseInt(prompt("Enter third number"));
+   
+    //Alert the largest of the 3
+    //alert(Math.max(num1, num2, num3));
+
+    //Ensure you also factor in if they are the same
+    if (num1 == num2 && num2 == num3) {
+        alert("All numbers are the same");
+    }
+    else{
+        alert("The largest number is " + Math.max(num1, num2, num3));
+        }
+    
+
+</script>
+</body>
+</html>

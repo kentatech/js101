@@ -8,10 +8,13 @@
 <body>
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa quaerat eveniet amet soluta minus adipisci? Repellat quia necessitatibus facilis pariatur.</p>
 <script>
-    var num1 = 20;
-    let num2 = 30;
-    var total = num1 + num2;
+    var num1 = prompt("Enter number one");//input
+    let num2 = prompt("Enter number two");
+    //var total = parseInt(num1) + parseInt(num2);//converts string to num
+    var total = Number(num1) + Number(num2);//converts string to num
+
     console.log(total);
+    alert(total);
 
     let first_name = "john";
     let last_name = "Doe";
