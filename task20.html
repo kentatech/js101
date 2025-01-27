@@ -6,6 +6,81 @@
     <title>Document</title>
 </head>
 <body>
+    <script>
+    function getNHIFRate(grossSalary) {
+    if (grossSalary <= 5999) return 150;
+    if (grossSalary <= 7999) return 300;
+    if (grossSalary <= 11999) return 400;
+    if (grossSalary <= 14999) return 500;
+    if (grossSalary <= 19999) return 600;
+    if (grossSalary <= 24999) return 750;
+    if (grossSalary <= 29999) return 850;
+    if (grossSalary <= 34999) return 900;
+    if (grossSalary <= 39999) return 950;
+    if (grossSalary <= 44999) return 1000;
+    if (grossSalary <= 49999) return 1100;
+    if (grossSalary <= 59999) return 1200;
+    if (grossSalary <= 69999) return 1300;
+    if (grossSalary <= 79999) return 1400;
+    if (grossSalary <= 89999) return 1500;
+    if (grossSalary <= 99999) return 1600;
+    return 1700; // For salaries above 100,000
+}
+
+function getNSSFRate(grossSalary) {
+    const cappedSalary = Math.min(grossSalary, 18000);
+    return cappedSalary * 0.06;
+}
+
+function getNHDFRate(grossSalary) {
+    return grossSalary * 0.015;
+}
+
+function calculatePAYEE(taxableIncome) {
+    let payee = 0;
+    const personalRelief = 2400;
+
+    if (taxableIncome <= 24000) {
+        payee = taxableIncome * 0.10;
+    } else if (taxableIncome <= 32333) {
+        payee = 2400 + (taxableIncome - 24000) * 0.25;
+    } else if (taxableIncome <= 467667) {
+        payee = 2400 + 2083.25 + (taxableIncome - 32333) * 0.30;
+    } else if (taxableIncome <= 767667) {
+        payee = 2400 + 2083.25 + 130400.1 + (taxableIncome - 467667) * 0.325;
+    } else {
+        payee = 2400 + 2083.25 + 130400.1 + 97575.275 + (taxableIncome - 767667) * 0.35;
+    }
+
+    return payee - personalRelief;
+}
+
+function calculateNetSalary(basicSalary, benefits) {
+    const grossSalary = basicSalary + benefits;
+    const nhifRate = getNHIFRate(grossSalary);
+    const nssfRate = getNSSFRate(grossSalary);
+    const nhdfRate = getNHDFRate(grossSalary);
+    const deductions = nhifRate + nssfRate + nhdfRate;
+    const taxableIncome = grossSalary - deductions;
+    const payee = calculatePAYEE(taxableIncome);
+    const netSalary = grossSalary - (nhifRate + nssfRate + nhdfRate + payee);
+
+    return("Gross Salary: " + grossSalary);
+    return("NHIF Rate: " + nhifRate);
+    return("NSSF Rate: " + nssfRate);
+    return("NHDF Rate: " + nhdfRate);
+    return("Taxable Income: " + taxableIncome);
+    return("PAYEE: " + payee);
+    return("Net Salary: " + netSalary);
+}
+
+// Example usage:
+const basicSalary = 50000; // Example basic salary
+const benefits = 10000; // Example benefits
+
+calculateNetSalary(basicSalary, benefits);
+
+    </script>
     
 </body>
 </html>
