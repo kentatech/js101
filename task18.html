@@ -44,11 +44,11 @@ function calculateTaxableIncome(basicSalary, benefits) {
     const deductions = nhifRate + nssfRate + nhdfRate;
     const taxableIncome = grossSalary - deductions;
 
-    console.log("Gross Salary: " + grossSalary);
-    console.log("NHIF Rate: " + nhifRate);
-    console.log("NSSF Rate: " + nssfRate);
-    console.log("NHDF Rate: " + nhdfRate);
-    console.log("Taxable Income: " + taxableIncome);
+    return("Gross Salary: " + grossSalary);
+    return("NHIF Rate: " + nhifRate);
+    return("NSSF Rate: " + nssfRate);
+    return("NHDF Rate: " + nhdfRate);
+    return("Taxable Income: " + taxableIncome);
 }
 
 // Example usage:
