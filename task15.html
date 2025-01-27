@@ -31,8 +31,8 @@ function calculateGrossAndNHIF(basicSalary, benefits) {
     const grossSalary = basicSalary + benefits;
     const nhifRate = getNHIFRate(grossSalary);
 
-    console.log("Gross Salary: " + grossSalary);
-    console.log("NHIF Rate: " + nhifRate);
+    return("Gross Salary: " + grossSalary);
+    return("NHIF Rate: " + nhifRate);
 }
 
 // Example usage:
