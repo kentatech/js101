@@ -81,36 +81,36 @@
       }
 
       // Example usage:
-      const basicSalary = 50000; // Example basic salary
-      const benefits = 10000; // Example benefits
+      var basicSalary = parseFloat(prompt("Enter Basic Salary(KES):")); // Example basic salary
+      var benefits = parseFloat(prompt("Enter Benefits(KES):")); // Example benefits
 
-      // Here’s the class implementation with all the required methods
-      class Payroll {
-        constructor(basicSalary, benefits) {
-          this.basicSalary = basicSalary;
-          this.benefits = benefits;
-        }
+    //   // Here’s the class implementation with all the required methods
+    //   class Payroll {
+    //     constructor(basicSalary, benefits) {
+    //       this.basicSalary = basicSalary;
+    //       this.benefits = benefits;
+    //     }
 
-        getGrossSalary() {
-          return this.basicSalary + this.benefits;
-        }
+    //     getGrossSalary() {
+    //       return this.basicSalary + this.benefits;
+    //     }
 
-        getNHIFRate(grossSalary) {
-          if (grossSalary <= 5999) return 150;
-          if (grossSalary <= 7999) return 300;
-          if (grossSalary <= 11999) return 400;
-          if (grossSalary <= 14999) return 500;
-          if (grossSalary <= 19999) return 600;
-          if (grossSalary <= 24999) return 750;
-          if (grossSalary <= 29999) return 850;
-          if (grossSalary <= 34999) return 900;
-          if (grossSalary <= 39999) return 950;
-          if (grossSalary <= 44999) return 1000;
-          if (grossSalary <= 49999) return 1100;
-          if (grossSalary <= 59999) return 1200;
-          if (grossSalary <= 69999) return;
-        }
-      }
+    //     getNHIFRate(grossSalary) {
+    //       if (grossSalary <= 5999) return 150;
+    //       if (grossSalary <= 7999) return 300;
+    //       if (grossSalary <= 11999) return 400;
+    //       if (grossSalary <= 14999) return 500;
+    //       if (grossSalary <= 19999) return 600;
+    //       if (grossSalary <= 24999) return 750;
+    //       if (grossSalary <= 29999) return 850;
+    //       if (grossSalary <= 34999) return 900;
+    //       if (grossSalary <= 39999) return 950;
+    //       if (grossSalary <= 44999) return 1000;
+    //       if (grossSalary <= 49999) return 1100;
+    //       if (grossSalary <= 59999) return 1200;
+    //       if (grossSalary <= 69999) return;
+    //     }
+    //   }
       calculateNetSalary(basicSalary, benefits);
     </script>
   </body>
