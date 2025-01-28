@@ -24,6 +24,8 @@
       benefits = parseFloat(prompt("Enter your benefits:"));
       gross_salary = calculateGrossSalary(basicsalary, benefits);
 
+      console.log("Gross salary is KES"+" "+gross_salary);
+
       function findnhifcontribution(gross_salary) {
         if (gross_salary <= 5999) {
           nhifContribution = 150;
