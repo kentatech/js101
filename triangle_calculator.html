@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <form action="/triangle_calculator" method="post">
-        <input type="text" name="name" placeholder="Enter height " required>
-        <input type="text" name="name" placeholder="Enter base " required>
-        <input type="submit" value="Calculate">
-
+      <input type="text" name="height" placeholder="Enter height " required />
+      <input type="text" name="base" placeholder="Enter base " required />
+      <input type="submit" value="Calculate" />
     </form>
-</body>
+
+    <script>
+     // Get the form elements
+     var form = document.querySelector('form');
+     var height = document.querySelector('input[name="height"]');
+     var base = document.querySelector('input[name="base"]');
+     var result = document.querySelector('#result');
+    
+
+    </script>
+  </body>
 </html>
