@@ -64,7 +64,9 @@
         }
         return nhifContribution;
       }
+      
       nhifContribution = findnhifcontribution(gross_salary);
+      console.log( "N.H.I.F Contribution is KES" + " " +nhifContribution)
 
       function findnssfcontribution(gross_salary) {
         if (gross_salary > 18000) {
@@ -75,6 +77,7 @@
         return nssfcontribution;
       }
       nssfcontribution = findnssfcontribution(gross_salary);
+      console.log( "N.S.S.F Contribution is KES" + " " + nssfcontribution)
 
       function findnhdfcontribution(gross_salary) {
         nhdfcontribution = gross_salary * 0.015;
