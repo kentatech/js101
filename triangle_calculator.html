@@ -6,9 +6,9 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="/triangle_calculator" method="post">
-      <input type="text" name="height" placeholder="Enter height " required />
-      <input type="text" name="base" placeholder="Enter base " required />
+    <form action="/triangle_calc" method="post" id="form">
+      <input type="number" name="height" placeholder="Enter height " id="triheight" required />
+      <input type="number" name="base" placeholder="Enter base " id="tribase" required />
       <input type="submit" value="Calculate" />
     </form>
 
@@ -17,7 +17,8 @@
      var form = document.querySelector('form');
      var height = document.querySelector('input[name="height"]');
      var base = document.querySelector('input[name="base"]');
-     var result = document.querySelector('#result');
+
+    
     
 
     </script>
