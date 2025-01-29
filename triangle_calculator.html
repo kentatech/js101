@@ -7,16 +7,16 @@
   </head>
   <body>
     <h1>AREA OF TRIANGLE</h1>
-    <h3>Javascript Events</h3>
+    <h3>Javascript Events:input</h3>
 
     <p id="errorid" style="color: red"></p>
     <p id="areaid" style="color: green">Result will be printed Here!</p>
     <form id="my_triangle">
-      <label for="">Base</label>
-      <input type="number" name="base" id="tribase" step="0.0001" >
-      <label for="">Height</label>
-      <input type="number" name="height" id="triheight" step="0.0001" >
-      <input type="submit" value="Calculate Area" style="color: yellow; background-color: green; border-radius: 12px; padding: 5px;  " />
+      <label for="" style="color:orange;">Base</label>
+      <input type="text" style="color: blueviolet;" name="base" id="tribase" step="0.0001" >
+      <label for="" style="color: orange;">Height</label>
+      <input type="text" name="height" style="color: brown;" id="triheight" step="0.0001" >
+      <input type="submit" style="color:green" id="mysubmitbutton" value="Calculate Area" style="color: yellow; background-color: green; border-radius: 12px; padding: 5px;  " >
     </form>
 
     <script>
@@ -26,6 +26,7 @@
       let base = document.getElementById("tribase");
       let error = document.getElementById("errorid");
       var area = document.getElementById("areaid")
+      let submitButton = document.getElementById("mysubmitbutton");
 
       
 
@@ -42,7 +43,7 @@
         else {
           error.innerHTML = " ";
         }
-      });
+      })
 
       base.addEventListener("input", function (e) {
         let baseValue = String(e.target.value);
@@ -55,12 +56,16 @@
         else {
           error.innerHTML = "";
         }
-      });
+      })
 
       form.addEventListener("submit", function (e) {
         e.preventDefault(); // Prevent default form submission
-        if (isNan(base.value) && isNan(height.value)) {
-          error.innerHTML = "Please enter both base and height";
+        if (isNaN(base.value) || isNaN(height.value)) {
+          area.innerHTML = "";
+          error.innerHTML="";
+          error.innerHTML = "Please enter both base and height (in digits ONLY!)";
+          submitButton.disabled = true;
+          
         }
         else{
         error.innerHTML = "";
@@ -70,7 +75,7 @@
         area_triangle = parseFloat(area_triangle).toFixed(2); // Keep two decimal places
         area.innerHTML = "Area of triangle is " + area_triangle;
         }
-      });
+      })
     </script>
   </body>
 </html>

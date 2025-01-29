@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 style="color: aqua">LOGIN TESTS</h1>
+    <h3 style="color: blue">Javascirpt event listener:input</h3>
+    <p id="errorid" style="color: red">
+      <!-- Bad Message Displayed Here && this color! -->
+    </p>
+    <p id="successid" style="color: green">
+      <!-- Good Message Displayed Here && this color! -->
+    </p>
+    <form action="" id="myform">
+      <label for="">Email Address</label>
+      <input
+        type="text"
+        id="email"
+        name="email"
+        placeholder="examplemail@mail.com"
+      />
+      <label for="">Password</label>
+      <input type="text" id="password" name="password" />
+
+      <input
+        type="submit"
+        value="Login"
+        id="submissionid"
+        style="border-radius: 7px; color: green; background-color: yellow"
+      />
+    </form>
+    <script>
+      let form = document.getElementById("myform");
+      let emailaddress = document.getElementById("email");
+      let password_p = document.getElementById("password");
+      let submissionFinal = document.getElementById("submissionid");
+      let error = document.getElementById("errorid");
+      var success = document.getElementById("successid");
+
+      const emailaddressOriginal = "admin@mail.com";
+      const password_pOriginal = "Pass123";
+      let attempts = 0;
+      let isBlocked = false;
+
+      emailaddress.addEventListener("input", function validateEmail(e) {
+        emailaddressValue = String(e.target.value);
+        emailaddressValue = emailaddressValue.trim();
+        if (emailaddressValue.include("@")) {
+          error.innerHTML = "";
+          return;
+        } else {
+          error.innerHTML = "Invalid Email";
+          return;
+        }
+      });
+      password_p.addEventListener("input", function validatePassword(e) {
+        if (password_p === password_pOriginal) {
+          error.innerHTML = "";
+          return;
+        } else {
+          error.innerHTML = "Invalid Password!";
+          return;
+        }
+      });
+
+      form.addEventListener("submit", function SubmissionButtonActivity(e) {
+        e.preventDefault(); // Prevent default form submission
+        if (
+          emailaddress === emailaddressOriginal &&
+          password_p === password_pOriginal
+        ) {
+          success.innerHTML = "You have been successfully Logged in";
+          window.location.href = "triangle_calculator.html"; // Redirect to page.html on successful login
+        } else if ((emailaddress.length == 0 || password_p, length == 0)) {
+          submissionFinal.disabled = true;
+          error.innerHTML = "Cannot be blank!";
+        } else {
+          attempts--;
+          error.innerHTML =
+            "Try Log in again ${attempts} remaining!Before Account Block!";
+          for (let i = 0; i < 5; i++) {
+            if (isBlocked) {
+              console.log("Account is blocked. Please contact support.");
+              return;
+            }
+
+            if (email === correctEmail && password === correctPassword) {
+              console.log("Login successful.");
+              window.location.href = "triangle_calculator.html"; // Redirect on success
+              return;
+            } else {
+              attempts++;
+              console.log(`Attempt ${attempts} failed.`);
+            }
+
+            if (attempts >= 5) {
+              isBlocked = true;
+              console.log("Account blocked after 5 failed attempts.");
+              return;
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
