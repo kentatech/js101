@@ -6,14 +6,12 @@
     <title>Document</title>
   </head>
   <body>
-    <h1 style="color: aqua">LOGIN TESTS</h1>
-    <h3 style="color: blue">Javascirpt event listener:input</h3>
+    <h1 style="color: aqua">Login Creation test</h1>
+    <h3 style="color: blue">Javascirpt event listener:input & submit</h3>
     <p id="errorid" style="color: red">
       <!-- Bad Message Displayed Here && this color! -->
     </p>
-    <p id="successid" style="color: green">
-      <!-- Good Message Displayed Here && this color! -->
-    </p>
+   
     <form action="" id="myform">
       <label for="">Email Address</label>
       <input
@@ -23,7 +21,7 @@
         placeholder="examplemail@mail.com"
       />
       <label for="">Password</label>
-      <input type="text" id="password" name="password" />
+      <input type="text" id="password" name="password" placeholder="enter password here"/>
 
       <input
         type="submit"
@@ -82,7 +80,7 @@
           emailaddressValue === emailaddressOriginal &&
           password_pValue === password_pOriginal
         ) {
-          success.innerHTML = "You have been successfully Logged in";
+          alert("You have been successfully Logged in!Redirecting to Dashboard Calculator")
           window.location.href = "triangle_calculator.html"; // Redirect to page.html on successful login
         } else if (
           (emailaddressValue === "") ||
