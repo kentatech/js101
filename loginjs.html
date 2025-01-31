@@ -43,65 +43,65 @@
       const emailaddressOriginal = "admin@mail.com";
       const password_pOriginal = "Pass123";
       let attempts = 0;
-      let isBlocked = false;
+      var regex = /^.{6,}$/;
 
       emailaddress.addEventListener("input", function validateEmail(e) {
         emailaddressValue = String(e.target.value);
         emailaddressValue = emailaddressValue.trim();
-        if (emailaddressValue.include("@")) {
+        if (emailaddressValue === "") {
+          error.innerHTML = "Invalid! Email cannot be empty";
+          // submissionFinal.disabled = true;
+        } else if (emailaddressValue.includes('@') && emailaddressValue.includes('.')) {
           error.innerHTML = "";
-          return;
+          submissionFinal.disabled=false
         } else {
-          error.innerHTML = "Invalid Email";
-          return;
+          error.innerHTML = "";
+          error.innerHTML = "Invalid! Email format is Incorrect!";
         }
       });
       password_p.addEventListener("input", function validatePassword(e) {
-        if (password_p === password_pOriginal) {
+        password_pValue = e.target.value;
+        password_pValue = password_pValue.trim();
+        if (password_pValue === "") {
+          error.innerHTML = "Invalid! Password cannot be empty";
+          // submissionFinal.disabled = true;
+        }
+        else if(regex.test(password_pValue)){
+            error.innerHTML = "";
+
+        }
+        else{
           error.innerHTML = "";
-          return;
-        } else {
-          error.innerHTML = "Invalid Password!";
-          return;
+          error.innerHTML = "Invalid! Password minimum Characters is 6 !";
         }
       });
 
       form.addEventListener("submit", function SubmissionButtonActivity(e) {
         e.preventDefault(); // Prevent default form submission
         if (
-          emailaddress === emailaddressOriginal &&
-          password_p === password_pOriginal
+          emailaddressValue === emailaddressOriginal &&
+          password_pValue === password_pOriginal
         ) {
           success.innerHTML = "You have been successfully Logged in";
           window.location.href = "triangle_calculator.html"; // Redirect to page.html on successful login
-        } else if ((emailaddress.length == 0 || password_p, length == 0)) {
+        } else if (
+          (emailaddressValue === "") ||
+          (password_pValue === "")
+        ) {
+          error.innerHTML = "All inputs must be filled!";
           submissionFinal.disabled = true;
-          error.innerHTML = "Cannot be blank!";
+          
         } else {
-          attempts--;
-          error.innerHTML =
-            "Try Log in again ${attempts} remaining!Before Account Block!";
-          for (let i = 0; i < 5; i++) {
-            if (isBlocked) {
-              console.log("Account is blocked. Please contact support.");
-              return;
-            }
-
-            if (email === correctEmail && password === correctPassword) {
-              console.log("Login successful.");
-              window.location.href = "triangle_calculator.html"; // Redirect on success
-              return;
-            } else {
-              attempts++;
-              console.log(`Attempt ${attempts} failed.`);
-            }
-
+          attempts++;
+          
             if (attempts >= 5) {
-              isBlocked = true;
-              console.log("Account blocked after 5 failed attempts.");
-              return;
+              error.innerHTML = "Account is blocked. Please contact support."
+              form.style.display = "none";
+              
+            } else {
+              error.innerHTML = "Invalid Credentials. Attempt(s) = "+ attempts +" out of 5 remaining!";
             }
-          }
+          
         }
       });
     </script>
