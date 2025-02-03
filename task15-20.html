@@ -84,6 +84,8 @@
         return nhdfcontribution;
       }
       nhdfcontribution = findnhdfcontribution(gross_salary);
+      console.log( "N.H.D.F Contribution is KES" + " " + nhdfcontribution)
+
 
       function findthetaxableincome(
         gross_salary,
@@ -102,6 +104,8 @@
         nhifContribution,
         nhdfcontribution
       );
+      
+      console.log( "Taxable Income is KES" + " " + taxable_income)
 
       function findthepayee(taxable_income) {
         let personal_relief = 2400;
@@ -130,6 +134,8 @@
         return payeetax;
       }
       payeetax = findthepayee(taxable_income);
+      //print payeetax
+      console.log("Payee Tax is KES" + " " + payeetax);
 
       function findTheNetsalary(
         gross_salary,
@@ -150,6 +156,10 @@
         nssfcontribution,
         payeetax
       );
+
+      //print netsalary
+      console.log("Net Salary is KES" + " " + netsalary);
+
     </script>
   </body>
 </html>

@@ -6,22 +6,29 @@
     <title>Document</title>
   </head>
   <body>
-    <h1 style="color: aqua">Login Creation test</h1>
+    <!-- below is not an error its a new techniquie(missing button string on close tag encapsuling body like a button until another close complete string-body tag)-->
+    <button style="color: red ">Login test mod</>
     <h3 style="color: blue">Javascirpt event listener:input & submit</h3>
     <p id="errorid" style="color: red">
       <!-- Bad Message Displayed Here && this color! -->
     </p>
-   
-    <form action="" id="myform">
+
+    <form action="" id="myform" style="color: black;">
       <label for="">Email Address</label>
       <input
+        style="color: blue;border-color: yellow;"
         type="text"
         id="email"
         name="email"
         placeholder="examplemail@mail.com"
       />
       <label for="">Password</label>
-      <input type="text" id="password" name="password" placeholder="enter password here"/>
+      <input
+        type="text"
+        id="password"
+        name="password"
+        placeholder="enter password here"
+      />
 
       <input
         type="submit"
@@ -29,6 +36,10 @@
         id="submissionid"
         style="border-radius: 7px; color: green; background-color: yellow"
       />
+    </form>
+    </button>
+    <form action="">
+      <p>OUTSIDE </p>
     </form>
     <script>
       let form = document.getElementById("myform");
@@ -49,9 +60,12 @@
         if (emailaddressValue === "") {
           error.innerHTML = "Invalid! Email cannot be empty";
           // submissionFinal.disabled = true;
-        } else if (emailaddressValue.includes('@') && emailaddressValue.includes('.')) {
+        } else if (
+          emailaddressValue.includes("@") &&
+          emailaddressValue.includes(".")
+        ) {
           error.innerHTML = "";
-          submissionFinal.disabled=false
+          submissionFinal.disabled = false;
         } else {
           error.innerHTML = "";
           error.innerHTML = "Invalid! Email format is Incorrect!";
@@ -63,12 +77,9 @@
         if (password_pValue === "") {
           error.innerHTML = "Invalid! Password cannot be empty";
           // submissionFinal.disabled = true;
-        }
-        else if(regex.test(password_pValue)){
-            error.innerHTML = "";
-
-        }
-        else{
+        } else if (regex.test(password_pValue)) {
+          error.innerHTML = "";
+        } else {
           error.innerHTML = "";
           error.innerHTML = "Invalid! Password minimum Characters is 6 !";
         }
@@ -80,26 +91,25 @@
           emailaddressValue === emailaddressOriginal &&
           password_pValue === password_pOriginal
         ) {
-          alert("You have been successfully Logged in!Redirecting to Dashboard Calculator")
+          alert(
+            "You have been successfully Logged in!Redirecting to Dashboard Calculator"
+          );
           window.location.href = "triangle_calculator.html"; // Redirect to page.html on successful login
-        } else if (
-          (emailaddressValue === "") ||
-          (password_pValue === "")
-        ) {
+        } else if (emailaddressValue === "" || password_pValue === "") {
           error.innerHTML = "All inputs must be filled!";
           submissionFinal.disabled = true;
-          
         } else {
           attempts++;
-          
-            if (attempts >= 5) {
-              error.innerHTML = "Account is blocked. Please contact support."
-              form.style.display = "none";
-              
-            } else {
-              error.innerHTML = "Invalid Credentials. Attempt(s) = "+ attempts +" out of 5 remaining!";
-            }
-          
+
+          if (attempts >= 5) {
+            error.innerHTML = "Account is blocked. Please contact support.";
+            form.style.display = "none";
+          } else {
+            error.innerHTML =
+              "Invalid Credentials. Attempt(s) = " +
+              attempts +
+              " out of 5 remaining!";
+          }
         }
       });
     </script>
